@@ -17,9 +17,7 @@ output:
 For the replication project, I am choosing to replicate Experiment 1 from "A familiar-size Stroop effect in the absence of basic-level recognition", by Bria Long and Talia Konkle (Cognition, 2017). The  findings suggest that real-world object size is represented in the "mid-level" features of the objects, independent  of whether we semantically know whether an object is large or small.   
   
 For this project, subjects will see images of two unrecognizable "texform" stimuli, and be asked to judge which image is larger or smaller on the screen. The original authors found a size Stroop effect, in which subjects were faster when the image that was larger on the screen was actually larger in real life (congruent) than when the image that was larger on the screen was actually smaller in real life (incongruent). This project will require rendering two texforms, one image larger than the other and collecting reaction time data.The stimuli that are used in the manuscript are publically available on the authors' website, and the details of the procedure are clearly outlined in the manuscript.
-
-preregistration: https://osf.io/evft8
-
+  
 github repository: github.com/psych251/long2017
 
 original paper: github.com/psych251/long2017/original_paper
@@ -33,26 +31,26 @@ experiment (smaller/bigger):http://web.stanford.edu/~ekubota/SizeStroop/sizeStro
 
 Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
 
-```{r include=T}
-library(WebPower)
-```
-
 80% power: 
 ```{r include=T}
+
+library(WebPower)
 wp.rmanova(n = NULL, ng = 1, nm = 2, f = 0.95, nscor = 1,
   alpha = 0.05, power = .8, type = 1)
 ```
 
-90%  power:
+90%  power 
 ```{r include=T}
+# 90% power
 wp.rmanova(n = NULL, ng = 1, nm = 2, f = 0.95, nscor = 1,
   alpha = 0.05, power = .9, type = 1)
 ```
 
-100% power:
+100% power
 ```{r include=T}
 wp.rmanova(n = NULL, ng = 1, nm = 2, f = 0.95, nscor = 1,
   alpha = 0.05, power = .95, type = 1)
+
 ```
   
 ### Planned Sample
@@ -69,9 +67,9 @@ These materials are available at https://github.com/brialorelle/TexformSizeStroo
 
 Stimuli will be rendered using MTurk. 
 
-"Two grayscale texforms appeared on either side of fixation on a white background. On half the trials, participants were asked to judge which texform was visually bigger on the screen as fast as possible. On the other half of the trials, participants were asked to judge which texform was visually smaller on the screen as fast as possible. Participants indicated which side of the screen corresponded to the visually bigger or visually smaller image by pressing either the m key or the c key. The images remained present on the display until the participant responded. High accuracy was encouraged as incorrect responses resulted in feedback and a 5s interval before the next trial began. After a correct response, there was a 900 ms interval before the next trial.
-Trials were blocked into 4 sets, where the task switched after each set. Half of the participants started with the "visually bigger” task, and half of the participants started with the "visually smaller” task. To orient people to the tasks, all participants first saw example trials and read instructions, and then completed 24 practice trials with both task instructions (12 in each task) in the same counterbalanced order as the experiment.
-The critical manipulation was that the two texforms on each display were presented at visual sizes that were either congruent or incongruent with the real-world size of the original objects. For example, in a congruent display, a shoe texform would be presented at a visually small size and a couch texform would be presented at a visually big size, as typically shoes are small and couches are big in the world. On incongruent trials, this was reversed: a shoe texform would be presented at a visually big size, and a couch texform would be presented at a visually small size. The fact the texforms were generated from objects of different real-world sizes was not mentioned at any time during the experiment. Furthermore, participants never saw a version of the Size-Stroop task with recognizable objects."
+"Two grayscale texforms appeared on either side of fixation on a white background. On half the trials, participants were asked to judge which texform was visually bigger on the screen as fast as possible. On the other half of the trials, participants were asked to judge which texform was visually smaller on the screen as fast as possible. Participants indicated which side of the screen corresponded to the visually bigger or visually smaller image by press- ing either the m key or the c key. The images remained present on the display until the participant responded. High accuracy was encouraged as incorrect responses resulted in feedback and a 5s interval before the next trial began. After a correct response, there was a 900 ms interval before the next trial.
+Trials were blocked into 4 sets, where the task switched after each set. Half of the participants started with the "visually bigger” task, and half of the participants started with the "visually smaller” task. To orient people to the tasks, all participants first saw exam- ple trials and read instructions, and then completed 24 practice trials with both task instructions (12 in each task) in the same counterbalanced order as the experiment.
+The critical manipulation was that the two texforms on each display were presented at visual sizes that were either congruent or incongruent with the real-world size of the original objects. For example, in a congruent display, a shoe texform would be presented at a visually small size and a couch texform would be presented at a visually big size, as typically shoes are small and couches are big in the world. On incongruent trials, this was reversed: a shoe texform would be presented at a visually big size, and a couch texform would be presented at a visually small size. The fact the texforms were gen- erated from objects of different real-world sizes was not mentioned at any time during the experiment. Furthermore, participants never saw a version of the Size-Stroop task with recognizable objects."
 
 "At an item level, each big object texform and small object texform were counterbalanced such that they appeared equally in both congruent/incongruent configurations, with the correct answer on the left/right side of the screen, and across both visual size tasks. Big and small object texforms were pseudo-randomly paired, such that the same random pairs of big and small texforms occurred together in the first half of the experiment for each participant. In the second half of the experiment, big and small object texforms were randomly paired together; this procedure was used in Konkle and Oliva (2012) to take into account pictorial issues related to recognizable objects, and for consistency we followed the exact procedure here. Overall, there were 480 trials (30 pairs of objects x 2 congruent/incongruent conditions x 2 left/right sides of screen x 2 bigger/smaller tasks x 2 different pairings of texforms; yielding 240 congruent/240 incongruent trials)."
 
@@ -79,7 +77,9 @@ The critical manipulation was that the two texforms on each display were present
 
 Incorrect trials and trials for which rection times (RT) are shorter than 1200ms or longer than 2500 ms will be excluded. Subjects with less than 80% of trials correct will be excluded. 
 
-Per the original experiment, "Trimmed reaction times were analyzed using a 2 x 2 repeated-measures ANOVA, with congruency (congruent/incongruent) and task (bigger/smaller on the screen) as factors."
+Per the original experiment, "Trimmed reaction times were analyzed using a 2 x 2 repeated-measures ANOVA, with con- gruency (congruent/incongruent) and task (bigger/smaller on the screen) as factors."
+
+**Clarify key analysis of interest here**  
 
 The key analysis of interest will be the main effect of congruency in the repeated measures ANOVA. 
 
@@ -89,11 +89,16 @@ The key analysis of interest will be the main effect of congruency in the repeat
 
 This study will be collected on MTurk whereas the original study was conducted on Harvard affiliates. In addition, in the original study all subjects viewed the stimuli on the same monitor with the same viewing distance, which made the visual angle of the stimuli uniform. 
 
+### Methods Addendum (Post Data Collection)
+
+You can comment this section out prior to final report with data collection.
+
 #### Actual Sample
 N = 16 (n = 8 will see bigger/smaller/bigger/smaller, n = 8 will see smaller/bigger/smaller/bigger)
 
 #### Differences from pre-data collection methods plan
-None. 
+  Any differences from what was described as the original plan, or “none”.
+
 
 ## Results
 
@@ -108,9 +113,6 @@ Data preparation following the analysis plan.
 library(tidyverse)
 library(ez)
 library(stringi)
-library(grid)
-library(gridExtra)
-library(knitr)
 ```
 
 Import data
@@ -164,15 +166,11 @@ for (i in 1:NROW(df)) {# for each sub split data
   }
   rm(subAccuracy, subCongruency, subRT, subTask)
 }
-```
 
-Convert RT to integers
-```{r include=T}
+# convert rt to integers 
 rt = strtoi(rt);
-```
 
-Put everything in a new dataframe!
-```{r include=T}
+# put everything in a new dataframe!
 df_long <- data.frame(subject, accuracy, congruency, rt, task)
   df_long$accuracy <- accuracy
   df_long$congruency <- congruency
@@ -182,48 +180,43 @@ df_long <- data.frame(subject, accuracy, congruency, rt, task)
 
 Histograms of RTs. Here, I am plotting histograms of the orginal data vs. my pilot data. Note that my distribution is shifted to slower RTs due to MTurk iteration.
 
-Original plot
+Here is the original data:
 ```{r include=T}
 mean(original_df$RT) 
 sd(original_df$RT)
-h1 <- ggplot(original_df, aes(x = RT)) +
-        geom_histogram() + 
-        xlim(0,3000) + 
-  ggtitle("Original Study")
+ggplot(original_df, aes(x = RT)) +
+  geom_histogram() + 
+  xlim(0,3000)
 ```
 
-Replication plot
+Here is the replication  data: 
 ```{r include=T}
+
 mean(df_long$rt)
 sd(df_long$rt)
-h2 <- ggplot(df_long, aes(x = rt)) +
-        geom_histogram() +
-        xlim(0, 3000) + 
-  ggtitle("Replication")
-```
-
-```{r include=T}
-grid.arrange(h1,h2,nrow=2)
+ggplot(df_long, aes(x = rt)) +
+  geom_histogram() +
+  xlim(0, 3000)
 ```
 
 Trim data (remove short and long RTs, and incorrect trials).
 ```{r include=T}
+# trim data
 DataTrimmed<- df_long[df_long$rt>1200 & df_long$rt<2500& df_long$accuracy == 1,]
 originalDataTrimmed<-original_df[original_df$RT>200 & original_df$RT<1500 & original_df$isCorrect == 1,]
 
 ```
 
-## Results
 First, reporoduce original results.
 ```{r include=T}
 originalAov.out  = ezANOVA(data = originalDataTrimmed, dv=.(RT), wid=.(sid), within=.(condLabel, taskNum), type=3)
-kable(originalAov.out)
+print(originalAov.out)
 ```
 
 Next, run the same analysis on replication data 
 ```{r include=T}
 aov.out = ezANOVA(data = DataTrimmed, dv=.(rt), wid=.(subject), within=.(congruency,task), type=3)
-(kable(aov.out))
+print(aov.out)
 ```
 
 Prepare original data for plot:
@@ -298,8 +291,7 @@ repPlot$SEM_repeated <- c(congruentErr, incongruentErr)
 
 Original plot:
 ```{r include=T}
-par(mfrow=c(1,2))
-p1 <- ggplot(origPlot, aes(x = condLabel, y=meanRT, fill=condLabel)) +
+ggplot(origPlot, aes(x = condLabel, y=meanRT, fill=condLabel)) +
     geom_bar(stat = "identity") +
     scale_fill_manual(values=c("#336699", "#660000")) + 
    geom_errorbar(aes(ymin=meanRT-SEM_repeated, ymax=meanRT+SEM_repeated), width=.2,
@@ -312,13 +304,12 @@ p1 <- ggplot(origPlot, aes(x = condLabel, y=meanRT, fill=condLabel)) +
   theme(legend.position = "none") + 
   theme(text = element_text(size=20)) +
   ylab("RT") + 
-  coord_cartesian(ylim =c(480,530)) + 
-  ggtitle("Original Study")
+  coord_cartesian(ylim =(c(475,525)))
 ```
 
 Replication plot:
 ```{r include=T}
-p2 <- ggplot(repPlot, aes(x = congruency, y=meanRT, fill=congruency)) +
+ggplot(repPlot, aes(x = congruency, y=meanRT, fill=congruency)) +
     geom_bar(stat = "identity")  + 
     scale_fill_manual(values=c("#336699", "#660000")) + 
    geom_errorbar(aes(ymin=meanRT-SEM_repeated, ymax=meanRT+SEM_repeated), width=.2,
@@ -331,98 +322,16 @@ p2 <- ggplot(repPlot, aes(x = congruency, y=meanRT, fill=congruency)) +
   theme(legend.position = "none") + 
   theme(text = element_text(size=20)) +
   ylab("RT") + 
-  coord_cartesian(ylim =c(1490,1540)) + 
-  ggtitle("Replication")
-```
-
-Plot side-by-side  
-```{r include=T}
-grid.arrange(p1,p2, nrow=1)
+  coord_cartesian(ylim =(c(1500,1550)))
 ```
 
 
-### Exploratory analyses 
-
-After seeing a significant effect of task in my replication experiment, I was curious to plot RT as a function of task. 
-
-Prepare original data for plot:
-First, we will get the means for each subject.
-```{r include=T}
-sidMeans <- originalDataTrimmed %>%
-    group_by(sid) %>%
-    summarize(meanRT = mean(RT)) 
-```
-
-Next get means for each task 
-```{r include=T}
-origPlot <- originalDataTrimmed %>%
-    group_by(taskLabel) %>%
-    summarize(meanRT = mean(RT), SEM = sd(RT)/sqrt(length(unique(originalDataTrimmed$sid))))
-```
-
-Next get means by subject/ task 
-```{r include=T}
-origTall <- originalDataTrimmed %>%
-    group_by(taskLabel,sid) %>%
-    summarize(meanRT = mean(RT))  
-```
-
-Make a wide form version the subject/ condition table
-```{r include=T}
-origWide = pivot_wider(origTall,names_from= taskLabel, values_from = meanRT)
-```
-
-Calculate repeated measures error, which they did in original paper.
-```{r include=T}
-biggerErr = sd(origWide$'which is bigger on the screen?' - sidMeans$meanRT)/sqrt(length(origWide$'which is bigger on the screen?'))
-smallerErr = sd(origWide$'which is smaller on the screen?' - sidMeans$meanRT)/sqrt(length(origWide$'which is smaller on the screen?'))
-origPlot$SEM_repeated <- c(smallerErr, biggerErr)
-```
-
-
-Prepare replication data for plot: 
-First, we will get the means for each subject.
-```{r include=T}
-rep_sidMeans <- DataTrimmed %>%
-    group_by(subject) %>%
-    summarize(meanRT = mean(rt)) 
-```
-
-Next, get means for each task
-```{r include=T}
-repPlot <- DataTrimmed %>%
-    group_by(task) %>%
-    summarize(meanRT = mean(rt), SEM = sd(rt)/sqrt(length(unique(DataTrimmed$subject))))
-```
-
-Next, get means by subject/ task 
-```{r include=T}
-repTall <- DataTrimmed %>%
-    group_by(task,subject) %>%
-    summarize(meanRT = mean(rt))  
-```
-
-Make a wide form version the subjet/ condition table
-```{r include=T}
-repWide = pivot_wider(repTall,names_from= task, values_from = meanRT)
-```
-
-Calculate repeated measures error, which they did in original paper.
-```{r include=T}
-smallerErr = sd(repWide$smaller - rep_sidMeans$meanRT)/sqrt(length(repWide$smaller))
-biggerErr = sd(repWide$bigger - rep_sidMeans$meanRT)/sqrt(length(repWide$bigger))
-repPlot$SEM_repeated <- c(biggerErr, smallerErr)
-```
-
-
-Original plot:
-```{r include=T}
-par(mfrow=c(1,2))
-xlabel=c("bigger","smaller")
-p3 <- ggplot(origPlot, aes(x = taskLabel, y=meanRT, fill=taskLabel)) +
+```{r include=F}
+# original
+ggplot(origPlot, aes(x = condLabel, y=meanRT, fill=condLabel)) +
     geom_bar(stat = "identity") +
     scale_fill_manual(values=c("#336699", "#660000")) + 
-   geom_errorbar(aes(ymin=meanRT-SEM_repeated, ymax=meanRT+SEM_repeated), width=.2,
+   geom_errorbar(aes(ymin=meanRT-SEM, ymax=meanRT+SEM), width=.2,
                  position=position_dodge(.9)) + 
   theme(axis.title.x=element_blank(),
         axis.ticks.x=element_blank()) + 
@@ -431,19 +340,15 @@ p3 <- ggplot(origPlot, aes(x = taskLabel, y=meanRT, fill=taskLabel)) +
     axis.line = element_line(colour = "black")) +
   theme(legend.position = "none") + 
   theme(text = element_text(size=20)) +
-  ylab("RT") + 
-  coord_cartesian(ylim =c(480,530)) + 
-  ggtitle("Original Study") + 
-  scale_x_discrete(labels= xlabel)
-
+  ylab("RT")
 ```
 
-Replication plot:
-```{r include=T}
-p4 <- ggplot(repPlot, aes(x = task, y=meanRT, fill=task)) +
+```{r include=F}
+# replication
+ggplot(repPlot, aes(x = congruency, y=meanRT, fill=congruency)) +
     geom_bar(stat = "identity")  + 
     scale_fill_manual(values=c("#336699", "#660000")) + 
-   geom_errorbar(aes(ymin=meanRT-SEM_repeated, ymax=meanRT+SEM_repeated), width=.2,
+   geom_errorbar(aes(ymin=meanRT-SEM, ymax=meanRT+SEM), width=.2,
                  position=position_dodge(.9)) +
    theme(axis.title.x=element_blank(),
         axis.ticks.x=element_blank()) + 
@@ -452,24 +357,16 @@ p4 <- ggplot(repPlot, aes(x = task, y=meanRT, fill=task)) +
     axis.line = element_line(colour = "black")) +
   theme(legend.position = "none") + 
   theme(text = element_text(size=20)) +
-  ylab("RT") + 
-  coord_cartesian(ylim =c(1490,1560)) + 
-  ggtitle("Replication")
+  ylab("RT") 
 ```
 
-Plot side-by-side  
-```{r include=T}
-grid.arrange(p3,p4, nrow=1)
-```
 
 ## Discussion
 
 ### Summary of Replication Attempt
 
-This replication was a success. The key statistic of interest was the main effect of congruency in the 2x2 ANOVA with task and congruency as factors. The original study found **main effect of congruency, F(1, 15) = 14.3, p = 0.002**, and our replication found a **main effect of congruency, F(1,15) = 13.2, p = 0.003**. 
-
-One suprising finding was that our replication found a main effect of task (F(1,15) = 7.97, p = 0.01), and a task x condition interaction (F(1,15), = 5.70, p = 0.03) that was not found in the original study. One possibility is that the variable reaction times in the Mturk iteration contributed to this effect. 
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
 
 ### Commentary
 
-One of the biggest concerns with this replication was that it would be on MTurk, where we cannot control the viewing distance or screen size of the participants. Here, the effect replicated despite variability in screen size and viewing distance. 
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
