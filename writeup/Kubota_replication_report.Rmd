@@ -115,7 +115,7 @@ library(knitr)
 
 Import data
 ```{r include=T}
-df = read.csv("finalResults.csv")
+df = read.csv("data/finalResults.csv")
 original_df = read.csv('../original_paper/data/E1GroupData.csv')
 
 ```
